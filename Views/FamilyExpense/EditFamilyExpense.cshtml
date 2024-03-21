@@ -1,0 +1,54 @@
+﻿@using FamilyExpenseTracker.Models
+@model FamilyExpenseViewModel
+@{
+    ViewBag.Title = "EditFamilyExpense";
+}
+
+<h2>EditFamilyExpense</h2>
+
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <td></td>
+            <td>
+                @Html.HiddenFor(x => x.Id)
+            </td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>
+                @Html.DropDownListFor(x => x.FamilyMemberName, Model.FamilyMembers)
+            </td>
+        </tr>
+        <tr>
+            <td>Purpose</td>
+            <td>
+                @Html.TextBoxFor(x => x.Purpose)
+            </td>
+        </tr>
+        <tr>
+            <td>Amount</td>
+            <td>
+                @Html.TextBoxFor(x => x.Amount)
+            </td>
+        </tr>
+        <tr>
+            <td>Date</td>
+            <td>
+                @Html.EditorFor(x => x.Date)
+                <span>selected date is @Model.Date.ToString("dd/MM/yy")</span>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button type="Submit">Edit Expense</button>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>@Html.ActionLink("Back","GetFamilyExpenses","FamilyExpense")</td>
+        </tr>
+    </table>
+}

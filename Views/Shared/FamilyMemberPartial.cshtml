@@ -1,0 +1,64 @@
+﻿@using FamilyExpenseTracker.Models
+@model FamilyMember
+
+@using (Html.BeginForm())
+ {
+    <table>
+        <tr>
+            <td></td>
+            <td>
+                @Html.HiddenFor(X => X.FamilyMemberId)
+            </td>
+        </tr>
+        <tr>
+            <td>Name:</td>
+            <td>
+                @Html.TextBoxFor(X => X.Name)
+            </td>
+            <td>
+                @Html.ValidationMessageFor(X => X.Name)
+            </td>
+        </tr>
+        <tr>
+            <td>Cell:</td>
+            <td>
+                @Html.TextBoxFor(X => X.Cell)
+            </td>
+            <td>
+                @Html.ValidationMessageFor(X => X.Cell)
+            </td>
+        </tr>
+        <tr>
+            <td>Work:</td>
+            <td>
+                @Html.TextBoxFor(X => X.Work)
+            </td>
+            <td>
+                @Html.ValidationMessageFor(X => X.Work)
+            </td>
+        </tr>
+        <tr>
+            <td>Income:</td>
+            <td>
+                @Html.TextBoxFor(X => X.Income)
+            </td>
+            <td>
+                @Html.ValidationMessageFor(X => X.Income)
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button type="submit">@ViewBag.BtnTitle</button>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                @Html.ActionLink("Back","GetFamilyMembers","FamilyMember")
+            </td>
+        </tr>
+
+    </table>
+ }
+

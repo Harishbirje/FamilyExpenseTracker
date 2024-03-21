@@ -1,0 +1,37 @@
+﻿@using FamilyExpenseTracker.Models
+@model List<FamilyExpenseViewModel>
+@{
+    ViewBag.Title = "GetFamilyExpenses";
+}
+<h2>Family Expenses</h2>
+@Html.ActionLink("Add FamilyExpense","AddFamilyExpense","FamilyExpense") 
+<table>
+    <tr>
+        <th>Id</th>
+        <th>FamilyMemberName</th>
+        <th>Purpose</th>
+        <th>Amount</th>
+        <th>Date</th>
+        <th></th>
+        <th></th>
+    </tr>
+    @foreach (var familyExpense in Model)
+     {
+        <tr>
+            <td>@familyExpense.Id</td>
+            <td>@familyExpense.FamilyMemberName</td>
+            <td>@familyExpense.Purpose</td>
+            <td>@familyExpense.Amount</td>
+            <td>@familyExpense.Date</td>
+            <td>@Html.ActionLink("Edit","EditFamilyExpense", new { id = familyExpense.Id })</td>
+            <td>
+                @using (Html.BeginForm("DeleteFamilyExpense","FamilyExpense",new {id = familyExpense.Id}))
+                 {
+                    <button type="submit" onclick="return confirm('Are you sure to delete this expense')">Delete</button>
+                 }
+            </td>
+        </tr>
+     }
+</table>
+@Html.ActionLink("Family Members","GetFamilyMembers","FamilyMembers")
+

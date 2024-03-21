@@ -1,0 +1,28 @@
+﻿@using FamilyExpenseTracker.Models
+@model List<FamilyMember>
+         <h2>Family Members</h2>
+         @Html.ActionLink("Add Family Member","AddFamilyMember")
+       <table>
+            <tr>
+                <td>Id</td>
+                <td>Name</td>
+                <td>Cell</td>
+                <td>Work</td>
+                <td>Income</td>
+                <td></td>
+            </tr>
+            @foreach (var familyMember in Model)
+             {
+                
+                <tr>
+                    <td>@familyMember.FamilyMemberId</td>
+                    <td>@familyMember.Name</td>
+                    <td>@familyMember.Cell</td>
+                    <td>@familyMember.Work</td>
+                    <td>@familyMember.Income</td>
+                    <td>@Html.ActionLink("Edit", "EditFamilyMember", new { id = familyMember.FamilyMemberId })</td>
+                    <td>@Html.ActionLink("Delete", "DeleteFamilyMember", new { id = familyMember.FamilyMemberId })</td>
+                </tr>
+             } 
+       </table>
+            @Html.ActionLink("Family Expenses","GetFamilyExpenses","FamilyExpense")

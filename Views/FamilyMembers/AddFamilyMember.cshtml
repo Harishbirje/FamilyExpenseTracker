@@ -1,0 +1,8 @@
+﻿@using FamilyExpenseTracker.Models;
+@model FamilyMember
+@{ 
+    ViewBag.BtnTitle = "AddFamilyMember";
+    ViewBag.Title = "Add Family Member";
+}
+<h2>Add FamilyMember</h2>
+@Html.Partial("FamilyMemberPartial",Model)
